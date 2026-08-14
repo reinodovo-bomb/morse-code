@@ -1,7 +1,7 @@
 name: Morse Code
 repo: reinodovo-bomb/morse-code
 versions:
-  firmware: 0.2.1
+  firmware: 0.3.0
   manual: 0.1.0
   hardware: 0.0.0
   models: 0.0.0
