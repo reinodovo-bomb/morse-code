@@ -4,12 +4,14 @@
 #include <morse.h>
 #include <pot.h>
 #include <rules.h>
-#include <utils/Button.h>
+#include <utils/button.h>
 
 #include <map>
 
 const int RED_PIN = 22, GREEN_PIN = 23;
 PuzzleModule module(StatusLight(RED_PIN, GREEN_PIN));
+
+StationWords words;
 
 const int STATION_RANGE = 256;
 const int STATION_TOLERANCE = 120;
@@ -23,18 +25,18 @@ Button submit_button;
 int station();
 void submit(ButtonState state, ButtonState _);
 
-void start() { Morse::start_time = millis(); }
+void start() {
+  answer = esp_random() % STATIONS;
+  Morse::setup(words[answer].c_str());
+  Morse::start_time = millis();
+}
 
 void restart() {
   Morse::clear();
   Display::clear();
 }
 
-void on_manual_code(int code) {
-  StationWords words = generate_words(code);
-  answer = esp_random() % STATIONS;
-  Morse::setup(words[answer].c_str());
-}
+void on_manual_code(int code) { words = generate_words(code); }
 
 void setup() {
   module.on_start(start);
@@ -71,6 +73,7 @@ bool in_range() {
 }
 
 void loop() {
+  delay(1);
   module.update();
   Pot::update();
   if (selected_station == -1 || !in_range()) selected_station = station();

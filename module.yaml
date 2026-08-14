@@ -1,0 +1,8 @@
+name: Morse Code
+repo: reinodovo-bomb/morse-code
+versions:
+  firmware: 0.2.1
+  manual: 0.0.0
+durations:
+  easy: 90
+  hard: 35

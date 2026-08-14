@@ -3,7 +3,11 @@
 #include <algorithm>
 #include <random>
 
+#ifdef ARDUINO
 std::mt19937 rng;
+#else
+thread_local std::mt19937 rng;
+#endif
 
 const int WORDS = 32;
 const char* all_words[WORDS] = {"shell",  "halls", "slick", "trick", "boxes",  "leaks",  "strobe", "bistro",

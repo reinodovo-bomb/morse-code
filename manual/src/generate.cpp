@@ -8,7 +8,7 @@ manual::json generate_json_for_code(uint16_t code) {
                                    "An antiquated form of naval communication? What next? At "
                                    "least it's genuine Morse Code, so pay attention and you "
                                    "might just learn something.",
-                                   APP_VERSION);
+                                   MANUAL_VERSION);
 
   data["stations"] = manual::json::array();
   for (int i = 0; i < STATIONS; i++) {

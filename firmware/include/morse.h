@@ -11,7 +11,7 @@ enum MorseTiming {
 };
 
 const int LETTERS = 26;
-const int GAP_TIME_MS = 400;
+const int GAP_TIME_MS = 500;
 const int MAX_WORD_LENGTH = 10;
 const int MAX_MORSE_LENGTH = MAX_WORD_LENGTH * 18 + 8;
 const char* MORSE[LETTERS] = {
